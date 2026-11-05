@@ -2,4 +2,4 @@
 type: fixed
 ---
 
-{{file:../../../mocks/sugya/fixtures/calendar-today.txt}}
+{{file:fixtures/calendar-today.txt}}

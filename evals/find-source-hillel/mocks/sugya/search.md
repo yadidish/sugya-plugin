@@ -2,4 +2,4 @@
 type: fixed
 ---
 
-{{file:../../../mocks/sugya/fixtures/search-hillel.txt}}
+{{file:fixtures/search-hillel.txt}}

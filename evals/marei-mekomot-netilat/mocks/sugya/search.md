@@ -2,4 +2,4 @@
 type: fixed
 ---
 
-{{file:../../../mocks/sugya/fixtures/search-netilat.txt}}
+{{file:fixtures/search-netilat.txt}}

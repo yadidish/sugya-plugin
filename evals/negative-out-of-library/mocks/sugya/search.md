@@ -2,4 +2,4 @@
 type: fixed
 ---
 
-{{file:../../../mocks/sugya/fixtures/search-zohar.txt}}
+{{file:fixtures/search-zohar.txt}}

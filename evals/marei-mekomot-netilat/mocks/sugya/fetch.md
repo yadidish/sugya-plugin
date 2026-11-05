@@ -2,4 +2,4 @@
 type: fixed
 ---
 
-{{file:../../../mocks/sugya/fixtures/fetch-oc-4.txt}}
+{{file:fixtures/fetch-oc-4.txt}}
