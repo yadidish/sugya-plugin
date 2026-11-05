@@ -1,0 +1,414 @@
+{
+  "tools": [
+    {
+      "name": "search",
+      "title": "Search the sugya library",
+      "description": "Full-text search over the classical Torah library (Tanakh, Mishnah, Talmud, commentaries, Midrash, Halakhah, Responsa, Musar, Chasidut, Jewish thought) on sugya.org. The index is Hebrew and Aramaic: query with Hebrew keywords or a phrase. An exact English reference («Berakhot 2a», «Shulchan Arukh, Orach Chayim 1:1») lists its segments. Returns refs with snippets; use fetch to read a ref in full.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120,
+            "description": "Hebrew keywords, a Hebrew phrase, or an exact English ref"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The reference; pass it to fetch"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "heRef": {
+                  "type": "string"
+                },
+                "snippet": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "rules": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "results",
+          "rules"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "fetch",
+      "title": "Read a text from the sugya library",
+      "description": "The full Hebrew text under one reference from the classical Torah library on sugya.org — a segment («Berakhot 2a:1»), a daf («Berakhot 2a»), a chapter or siman («Mishnah Berurah 1», «Genesis 1») — with its Hebrew reference, edition, licence and link. Use the id a search returned, or any exact English Sefaria-style reference.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 160,
+            "description": "An exact English reference, e.g. \"Berakhot 2a:1\""
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "heRef": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string",
+                "const": "he"
+              },
+              "edition": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "segments": {
+                "type": "number"
+              },
+              "truncated": {
+                "type": "boolean"
+              },
+              "rules": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "heRef",
+              "path",
+              "language",
+              "edition",
+              "license",
+              "segments",
+              "truncated",
+              "rules"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "text",
+          "url",
+          "metadata"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_links",
+      "title": "Texts connected to a reference",
+      "description": "The connection graph of one reference in the classical library: the commentaries on it, the Gemara it rests on, the codes and responsa that cite it, the verses it quotes. Give a ref («Berakhot 2a:1», «Shulchan Arukh, Orach Chayim 1:1»); optionally narrow to a category (Commentary, Talmud, Halakhah, Midrash, Tanakh, Mishnah, Responsa, Musar, Chasidut, Jewish Thought). Returns refs to pass to fetch, grouped by category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 160,
+            "description": "An exact English reference"
+          },
+          "category": {
+            "description": "Keep only this category of linked text",
+            "type": "string",
+            "maxLength": 40
+          },
+          "limit": {
+            "description": "Links to return (default 60)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The linked text's reference; pass it to fetch"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heRef": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "description": "canon | musar | chasidut | machshava"
+                },
+                "anchor": {
+                  "description": "Where in the requested text the link lands",
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "category",
+                "level",
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "categories": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "rules": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "links",
+          "total",
+          "truncated",
+          "categories",
+          "rules"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "calendar",
+      "title": "Jewish calendar: date, daf yomi, cycles, zmanim",
+      "description": "For a date (today by default): the Hebrew date, the Daf Yomi with its ref and link, the coming parasha, holidays and Rosh Chodesh, the daily learning cycles (Mishnah Yomit, Rambam, Kitzur, Arukh HaShulchan, Chofetz Chaim, Nach Yomi…) as refs to fetch; with a city, also candle lighting, havdalah and the day's zmanim in local time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "description": "YYYY-MM-DD; today when omitted",
+            "type": "string"
+          },
+          "location": {
+            "description": "A city, e.g. \"Jerusalem\", \"Bnei Brak\", \"Lakewood\", \"London\"",
+            "type": "string",
+            "maxLength": 60
+          }
+        },
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "lookup_word",
+      "title": "Look up an Aramaic or Hebrew word",
+      "description": "A word of the Gemara: how it is vocalised and glossed in Hebrew in the sugya.org Shas dictionary (every word form of the printed Shas, with sample dafim), and its Jastrow entry — root, meaning, where it occurs. Pass one word as printed, with or without vowels.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40,
+            "description": "One Hebrew or Aramaic word, e.g. \"מאימתי\""
+          }
+        },
+        "required": [
+          "word"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "find_resources",
+      "title": "Shiurim, review pages and Q&A archives for a daf or question",
+      "description": "Links beyond the text: \"shiur\" — recorded daf shiurim indexed by sugya.org (audio and video, eight languages) for a daf; \"review\" — Kollel Iyun Hadaf's English insights, point-by-point summary, review questions and quiz for a daf; \"qa\" — the search pages of rabbinic answer archives (din.org.il, dinonline.org, Toldot, Hidabroot, Ohr Somayach) for a question. Everything returned is a link to its owner's page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "shiur",
+              "review",
+              "qa"
+            ]
+          },
+          "id": {
+            "description": "A Bavli daf, e.g. \"Berakhot 2a\" (shiur, review)",
+            "type": "string",
+            "maxLength": 80
+          },
+          "query": {
+            "description": "The question, in its own language (qa)",
+            "type": "string",
+            "maxLength": 200
+          },
+          "language": {
+            "description": "Preferred shiur language",
+            "type": "string",
+            "enum": [
+              "he",
+              "en",
+              "ru",
+              "fr",
+              "es",
+              "pt",
+              "de",
+              "yi"
+            ]
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "get_method",
+      "title": "Get a working method",
+      "description": "The written method for a kind of task on this library: \"sugya-method\" (the ground rules for every answer), \"daf-yomi\" (learning a daf), \"find-source\" (locating a phrase), \"marei-mekomot\" (laying out the sources on a halakhic question). Returns markdown.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "sugya-method",
+              "daf-yomi",
+              "find-source",
+              "marei-mekomot"
+            ],
+            "description": "Which method to read"
+          }
+        },
+        "required": [
+          "method"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

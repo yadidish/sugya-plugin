@@ -1,0 +1,15 @@
+{
+  "name": "sugya",
+  "description": "The sugya.org Torah library for AI assistants",
+  "owner": {
+    "name": "sugya.org",
+    "email": "support@sugya.org"
+  },
+  "plugins": [
+    {
+      "name": "sugya",
+      "source": "./",
+      "description": "Learn Torah, Talmud and halakhah from the classical library with exact references: daf yomi, chavruta, find a source, marei mekomot, calendar"
+    }
+  ]
+}

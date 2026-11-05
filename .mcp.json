@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sugya": {
+      "type": "http",
+      "url": "https://mcp.sugya.org/mcp"
+    }
+  }
+}
