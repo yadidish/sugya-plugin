@@ -46,6 +46,17 @@ The skills are text; the data comes from seven read-only MCP tools on `mcp.sugya
 `search`, `fetch`, `get_links`, `calendar`, `lookup_word`, `find_resources`, `get_method`.
 A client that cannot load skills gets the same methods from `get_method`.
 
+## Your own learning (optional sign-in)
+
+Five more tools work on your sugya.org account — `my_learning` (where you stopped, what you
+marked learnt, what is due for review, saved places, this week's minutes), `mark_learned`,
+`save`, `create_board` (a sugya board from the sources the assistant found) and `create_room`
+(a chavruta room or a lesson, with the link). The first time the assistant calls one, the
+client sends you to `mcp.sugya.org/authorize`: you sign in with the account you use on the
+site (Google or a one-time link) and tick what the assistant may do. The assistant gets a key
+for those tools only — never your password or your site session — and you can disconnect it
+in the client's connector settings. The library works without any of this.
+
 ## Honest limits
 
 - The index is Hebrew and Aramaic. The assistant must search in Hebrew; the skills tell it to.
@@ -65,8 +76,8 @@ cases that must not fire or must decline — with recorded answers of the real s
 
 ## Privacy
 
-No account, no login. Tool calls are logged (query text, returned references, a hashed client
-handle) to improve the search; see [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms) (summary in [PRIVACY.md](PRIVACY.md)).
+The library needs no account. Tool calls are logged (query text, returned references, a hashed
+client handle; with sign-in, your account id) to improve the search; see [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms) (summary in [PRIVACY.md](PRIVACY.md)).
 
 ## Source
 

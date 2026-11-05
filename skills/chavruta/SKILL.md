@@ -18,7 +18,8 @@ Ask once, or infer from how the person writes:
 
 ## The loop
 
-1. `fetch` the passage (a daf or a segment reference). Show one step of the Gemara in
+1. `fetch` the passage (a daf or a segment reference); when the person says «continue»,
+   `my_learning` gives the daf and stop they left. Show one step of the Gemara in
    Hebrew — never more than one move at a time.
 2. **Read** — ask them to read it aloud (or to themselves) and say what it is doing:
    a question, a proof, an objection.

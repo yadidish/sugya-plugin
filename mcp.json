@@ -6,7 +6,12 @@
       "url": "https://mcp.sugya.org/mcp",
       "extensions": {
         "com.openai": {
-          "auth": { "type": "none" }
+          "auth": {
+            "type": "mixed",
+            "client": {
+              "mode": "cimd"
+            }
+          }
         }
       }
     }

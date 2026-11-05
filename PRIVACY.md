@@ -1,6 +1,6 @@
 # Privacy policy — sugya MCP server and plugin
 
-*Last updated 2026-11-05. The policy that binds is the one on the site: [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms); this file is the server-specific summary.*
+*Last updated 2026-11-06. The policy that binds is the one on the site: [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms); this file is the server-specific summary.*
 
 The sugya plugin connects an AI assistant (Claude, ChatGPT, Claude Code, Codex or any MCP
 client) to the MCP server at `https://mcp.sugya.org/mcp`, operated by sugya.org. The server
@@ -25,6 +25,19 @@ is attached to any row, because the server has none.
 
 The log is read only by the operator of sugya.org, for evaluating and improving the search
 and the written methods, and is not sold or shared.
+
+## Signing in (the personal tools)
+
+`my_learning`, `mark_learned`, `save`, `create_board` and `create_room` act on your sugya.org
+account. To use them you sign in once on `mcp.sugya.org/authorize` with the same account as on
+the site and allow the client the permissions you tick (`learning`, `boards`, `rooms`). The
+client receives a key that opens only those tools, bound to those permissions; it never sees
+your password or your site session. The key expires after an hour and is renewed while in use;
+ninety days without use ends it. We keep the client's registration (name, callback address),
+which account allowed it, when, with which permissions, and one-way hashes of the keys.
+Disconnecting the client in its connector settings revokes the key. Calls made with your
+account are logged like other calls, with your account id in place of the address hash; the
+text of a note you put on a board is not logged. Nothing is deleted through these tools.
 
 ## Third parties the server calls on your behalf
 

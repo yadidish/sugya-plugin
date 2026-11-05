@@ -50,6 +50,20 @@ scope: no modern or academic commentary, no open web, no memory.
 | `find_resources(kind, id?, query?)` | Links to shiurim, review pages and rabbinic Q&A archives — other people's pages, to be opened and read, never summarised from memory. |
 | `get_method(method)` | This method and the task methods as text, for a client that cannot load skills. |
 
+With the person signed in to their sugya account (the server asks once, through OAuth), five more
+tools act on their own learning — use them only when the person asks about or for it:
+
+| Tool | Use it for |
+| --- | --- |
+| `my_learning(include?, limit?)` | Where they stopped, what they marked learnt, amudim due for review, saved places, minutes and lessons this week. Call it before «continue», «what should I review», «what have I learnt». |
+| `mark_learned(id, action?)` | «Mark it learnt» / «I reviewed it» / «unmark it» — one amud, only when asked. |
+| `save(id, remove?)` | «Save this» — a daf, a chapter, a lesson. |
+| `create_board(name, sources, notes?)` | «Lay this out as a board», «prepare the shiur» — the sources you found, as cards. |
+| `create_room(kind, id)` | «Open a chavruta room», «schedule a lesson» — returns the link to share. |
+
+Without sign-in they answer «sign in required»: say so in one line, offer the client's
+connector settings, and go on from the library. Never mark, save or create on your own initiative.
+
 ## Shape of an answer
 
 - Lead with the answer in one or two sentences.

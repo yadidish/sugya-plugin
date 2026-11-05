@@ -8,7 +8,9 @@ description: Learn a daf of Gemara with a person — today's Daf Yomi or any daf
 Follow the sugya method (`sugya-method`). Then:
 
 1. **Find the daf.** If the person did not name one, call `calendar` and take `dafYomi.id`
-   (for example «Bekhorot 48a»). Tell them which daf it is and give its link.
+   (for example «Bekhorot 48a»). Tell them which daf it is and give its link. If they say
+   «continue» or «where did I stop», call `my_learning` first: the trail names the daf and the
+   stop they were on, and `today.dafYomi.learned` says whether today's daf is already marked.
 2. **Read it.** Call `fetch` on the daf reference («Berakhot 2a») to get its segments in
    order. A daf is one side; the person may want both — the second side is «2b».
 3. **Open with the question.** Before any text, say in one sentence what the sugya is asking —
@@ -26,7 +28,9 @@ Follow the sugya method (`sugya-method`). Then:
    language) or `kind: "review"` and the daf. Hand over the links; do not describe a shiur
    you have not heard.
 8. **End a sugya with three review questions**, answerable from the text alone, and offer
-   the answers when asked.
+   the answers when asked. When the daf is done, offer — do not do — `mark_learned`: «Mark
+   Bekhorot 48a learnt?» The mark schedules its reviews (1, 3, 7, 16, 35 days); a review the
+   person completes with you is `mark_learned(action: "reviewed")`.
 
 What not to do: no introduction about the tractate or the topic from memory — the fetched text
 is the lesson; no Steinsaltz-style paraphrase presented as the Gemara's words; no
