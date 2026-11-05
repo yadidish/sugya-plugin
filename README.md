@@ -66,7 +66,7 @@ cases that must not fire or must decline — with recorded answers of the real s
 ## Privacy
 
 No account, no login. Tool calls are logged (query text, returned references, a hashed client
-handle) to improve the search; see [PRIVACY.md](PRIVACY.md).
+handle) to improve the search; see [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms) (summary in [PRIVACY.md](PRIVACY.md)).
 
 ## Source
 

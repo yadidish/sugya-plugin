@@ -1,6 +1,6 @@
 # Privacy policy — sugya MCP server and plugin
 
-*Last updated 2026-11-05.*
+*Last updated 2026-11-05. The policy that binds is the one on the site: [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms); this file is the server-specific summary.*
 
 The sugya plugin connects an AI assistant (Claude, ChatGPT, Claude Code, Codex or any MCP
 client) to the MCP server at `https://mcp.sugya.org/mcp`, operated by sugya.org. The server

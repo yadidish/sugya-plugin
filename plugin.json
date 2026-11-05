@@ -32,8 +32,8 @@
           "Read"
         ],
         "websiteURL": "https://sugya.org",
-        "privacyPolicyURL": "https://github.com/yadidish/sugya-plugin/blob/main/PRIVACY.md",
-        "termsOfServiceURL": "https://github.com/yadidish/sugya-plugin/blob/main/PRIVACY.md#terms",
+        "privacyPolicyURL": "https://sugya.org/privacy",
+        "termsOfServiceURL": "https://sugya.org/terms",
         "defaultPrompt": [
           "Learn today's daf yomi with me.",
           "Where does the phrase «דעלך סני לחברך לא תעביד» come from?",

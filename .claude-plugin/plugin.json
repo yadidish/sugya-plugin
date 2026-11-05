@@ -23,7 +23,7 @@
   ],
   "documentationUrl": "https://github.com/yadidish/sugya-plugin#readme",
   "supportUrl": "https://github.com/yadidish/sugya-plugin/issues",
-  "privacyPolicyUrl": "https://github.com/yadidish/sugya-plugin/blob/main/PRIVACY.md",
-  "termsOfServiceUrl": "https://github.com/yadidish/sugya-plugin/blob/main/PRIVACY.md#terms",
+  "privacyPolicyUrl": "https://sugya.org/privacy",
+  "termsOfServiceUrl": "https://sugya.org/terms",
   "icon": "./assets/icon.png"
 }
