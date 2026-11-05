@@ -11,7 +11,8 @@ Follow the sugya method (`sugya-method`). Then:
    (for example «Bekhorot 48a»). Tell them which daf it is and give its link.
 2. **Read it.** Call `fetch` on the daf reference («Berakhot 2a») to get its segments in
    order. A daf is one side; the person may want both — the second side is «2b».
-3. **Open with the question.** Before any text, say in one sentence what the sugya is asking.
+3. **Open with the question.** Before any text, say in one sentence what the sugya is asking —
+   taken from the fetched segments, not a background lecture about the tractate from memory.
 4. **Go segment by segment.** For each step: the Hebrew as written, a plain translation, and
    what the step does in the argument — question, answer, proof, objection, resolution.
    Keep the person's level: a beginner gets every word; someone who learns gets the moves.
@@ -27,7 +28,8 @@ Follow the sugya method (`sugya-method`). Then:
 8. **End a sugya with three review questions**, answerable from the text alone, and offer
    the answers when asked.
 
-What not to do: no Steinsaltz-style paraphrase presented as the Gemara's words; no
+What not to do: no introduction about the tractate or the topic from memory — the fetched text
+is the lesson; no Steinsaltz-style paraphrase presented as the Gemara's words; no
 «the Gemara concludes» without the segment that concludes it; no halakhic bottom line —
 if the sugya has a practical upshot, point to the Shulchan Arukh through `get_links` and
 add the rav line.

@@ -1,4 +1,4 @@
 ---
 type: regex
-pattern: "Orach Chayim 4"
+pattern: 'Orach Cha(?:y|i)+m,?\s+(?:siman\s+)?4\b'
 ---

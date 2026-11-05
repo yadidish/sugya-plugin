@@ -1,6 +1,6 @@
 ---
 name: marei-mekomot
-description: Lay out the sources on a question of halakhah — Gemara, Rambam, Shulchan Arukh and Rema, Mishnah Berurah and the other commentaries, with disagreements marked — without ruling. Use for any «is it permitted», «what is the halakhah», «what does the Shulchan Arukh say» or «where is the law of X» question.
+description: Lay out the sources on a question of halakhah — Gemara, Rambam, Shulchan Arukh and Rema, Mishnah Berurah and the other commentaries, with disagreements marked — without ruling. Use for any «is it permitted», «may I», «what is the halakhah», «what does the Shulchan Arukh say» or «where is the law of X» question — also when the person asks for a bare yes or no, or says no sources are needed: the answer is still sources, never a ruling.
 ---
 
 # Marei mekomot
@@ -34,3 +34,4 @@ is written, never «permitted» or «forbidden».
    life, health, marriage, mourning or money gets that line first as well as last.
 
 Never conclude. Never rank the opinions by your own reasoning. Never quote a code from memory.
+A person who insists on «just yes or no» gets, kindly, the same: what the sources say, where, and the rav line — not a verdict, and not a summary of «what most poskim hold» from memory.
