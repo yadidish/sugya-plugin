@@ -2,9 +2,11 @@
 
 *Last updated 2026-11-06. The policy that binds is the one on the site: [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms); this file is the server-specific summary.*
 
-The sugya plugin connects an AI assistant (Claude, ChatGPT, Claude Code, Codex or any MCP
-client) to the MCP server at `https://mcp.sugya.org/mcp`, operated by sugya.org. The server
-serves a public library of classical Torah texts. There is no account and no login.
+The sugya plugin connects an AI assistant (Claude, ChatGPT, Gemini, Claude Code, Codex or any
+MCP client) to the MCP server at `mcp.sugya.org`, operated by sugya.org — `/library` (the
+public library alone, no account and no login), `/me` (the library plus your own learning,
+sign-in when you add it) or `/mcp` (both, sign-in when a personal tool is called). The
+server serves a public library of classical Torah texts; the personal tools are described below.
 
 ## What the server receives
 

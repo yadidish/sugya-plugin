@@ -1,6 +1,6 @@
 # sugya — the Torah library for your AI
 
-Learn Torah, Talmud and halakhah with Claude, ChatGPT or any MCP client that answers
+Learn Torah, Talmud and halakhah with Claude, ChatGPT, Gemini or any MCP client that answers
 **only from the classical library** on [sugya.org](https://sugya.org) — Tanakh, Mishnah,
 Talmud Bavli and Yerushalmi with their commentaries, Midrash, Rambam, Tur, Shulchan Arukh
 with Mishnah Berurah, Responsa, Musar — with an exact reference and a link on every claim.
@@ -9,9 +9,29 @@ It shows **where it is written**; it does not rule. For practical halakhah, ask 
 
 ## Install
 
-**Claude (claude.ai, desktop, mobile)** — add the connector:
-[Add sugya to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=sugya&connectorUrl=https%3A%2F%2Fmcp.sugya.org%2Fmcp)
-(the form comes pre-filled with the name and `https://mcp.sugya.org/mcp`; confirm it).
+The server has three addresses, so you can pick what your assistant gets:
+
+| Address | What it has | Sign-in |
+| --- | --- | --- |
+| `https://mcp.sugya.org/library` | the library — seven read-only tools | never |
+| `https://mcp.sugya.org/me` | the library plus your own learning — twelve tools | once, when you add it (your sugya.org account) |
+| `https://mcp.sugya.org/mcp` | both in one | only when a personal tool is called |
+
+**Claude (claude.ai, desktop, mobile)** — one click fills the connector form; confirm it:
+
+- Library only: [Add sugya to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=sugya&connectorUrl=https%3A%2F%2Fmcp.sugya.org%2Flibrary) — choose **No sign-in**.
+- With your own learning: [Add sugya (your account) to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=sugya&connectorUrl=https%3A%2F%2Fmcp.sugya.org%2Fme) — leave **Sign in now**; Claude sends you to sign in with your sugya account right away.
+- Both in one: the same form with `https://mcp.sugya.org/mcp` and **Sign in when needed** — Claude asks you to sign in the first time a personal tool is called.
+
+**ChatGPT** (Plus and up; no developer mode needed) — *Plugins → Add → Add custom MCP server*:
+
+- Library only: name `sugya`, URL `https://mcp.sugya.org/library`, authentication **No authentication**.
+- With your own learning: URL `https://mcp.sugya.org/me`, authentication **OAuth** — ChatGPT sends you to sign in with your sugya account; when it then offers «Sign in with sugya», take it.
+- `https://mcp.sugya.org/mcp` with **OAuth or no authentication** also works, but keep to one connection: if you first chose «Use without an account» and sign in later, ChatGPT holds two links and asks which one to use.
+
+**Gemini** (gemini.google.com) — *Customize → Connected Apps → Create custom app*: paste the
+address, Next, Connect. `https://mcp.sugya.org/library` needs nothing more; `https://mcp.sugya.org/me`
+sends you to sign in with your sugya account (leave Client ID and secret empty).
 
 **Claude Code** — the plugin, with its skills:
 
@@ -26,10 +46,8 @@ or the bare server, without skills:
 claude mcp add --transport http sugya https://mcp.sugya.org/mcp
 ```
 
-**ChatGPT** — until the plugin is listed in the directory: *Settings → Security and
-login → Developer mode*, then add the server `https://mcp.sugya.org/mcp`.
-
-**Any other MCP client** — Streamable HTTP, no login: `https://mcp.sugya.org/mcp`.
+**Any other MCP client** — Streamable HTTP; OAuth 2.1 with dynamic registration or a
+client-id metadata document for `/me` and `/mcp`.
 
 ## What it does
 
@@ -51,11 +69,12 @@ A client that cannot load skills gets the same methods from `get_method`.
 Five more tools work on your sugya.org account — `my_learning` (where you stopped, what you
 marked learnt, what is due for review, saved places, this week's minutes), `mark_learned`,
 `save`, `create_board` (a sugya board from the sources the assistant found) and `create_room`
-(a chavruta room or a lesson, with the link). The first time the assistant calls one, the
-client sends you to `mcp.sugya.org/authorize`: you sign in with the account you use on the
-site (Google or a one-time link) and tick what the assistant may do. The assistant gets a key
-for those tools only — never your password or your site session — and you can disconnect it
-in the client's connector settings. The library works without any of this.
+(a chavruta room or a lesson, with the link). They live on `/me` (sign-in when you add the
+server) and on `/mcp` (sign-in the first time one is called): the client sends you to
+`mcp.sugya.org/authorize`, you sign in with the account you use on the site (Google or a
+one-time link) and tick what the assistant may do — `learning`, `boards`, `rooms`. The
+assistant gets a key for those tools only — never your password or your site session — and
+you can disconnect it in the client's connector settings. The library works without any of this.
 
 ## Honest limits
 
