@@ -29,9 +29,11 @@ The server has three addresses, so you can pick what your assistant gets:
 - With your own learning: URL `https://mcp.sugya.org/me`, authentication **OAuth** — ChatGPT sends you to sign in with your sugya account; when it then offers «Sign in with sugya», take it.
 - `https://mcp.sugya.org/mcp` with **OAuth or no authentication** also works, but keep to one connection: if you first chose «Use without an account» and sign in later, ChatGPT holds two links and asks which one to use.
 
-**Gemini** (gemini.google.com) — *Customize → Connected Apps → Create custom app*: paste the
-address, Next, Connect. `https://mcp.sugya.org/library` needs nothing more; `https://mcp.sugya.org/me`
-sends you to sign in with your sugya account (leave Client ID and secret empty).
+**Gemini** (gemini.google.com, a personal Google account) — *Customize → Connected Apps →
+Create custom app*: paste the address, Next, tick the acknowledgment, Connect. With
+`https://mcp.sugya.org/me` Gemini sends you to sign in with your sugya account (leave Client ID
+and secret empty), then shows the twelve actions and «Connect» once more to save. In a chat,
+name the app or pick it with «@». Custom apps in Gemini are English-only for now.
 
 **Claude Code** — the plugin, with its skills:
 
