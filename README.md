@@ -89,9 +89,9 @@ you can disconnect it in the client's connector settings. The library works with
 
 ## Evaluation
 
-`gold/gold.json` holds 73 questions with the references a correct answer must reach;
-`node scripts/gold-eval.mjs --verify` scores the live server (success@1, Recall@5/10, MRR,
-empty rate) and checks that every expected reference exists and carries its phrase.
+The live server is scored against a gold set of 73 questions with the references a correct
+answer must reach (success@1, Recall@5/10, MRR, empty rate); the set and its runner are kept
+with the server's code, not in this plugin.
 `evals/` holds the `claude plugin eval` suite — positive cases for each skill and negative
 cases that must not fire or must decline — with recorded answers of the real server as mocks.
 

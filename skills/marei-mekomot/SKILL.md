@@ -1,6 +1,6 @@
 ---
 name: marei-mekomot
-description: Lay out the sources on a question of halakhah — Gemara, Rambam, Shulchan Arukh and Rema, Mishnah Berurah and the other commentaries, with disagreements marked — without ruling. Use for any «is it permitted», «may I», «what is the halakhah», «what does the Shulchan Arukh say» or «where is the law of X» question — also when the person asks for a bare yes or no, or says no sources are needed: the answer is still sources, never a ruling.
+description: "Lay out the sources on a question of halakhah — Gemara, Rambam, Shulchan Arukh and Rema, Mishnah Berurah and the other commentaries, with disagreements marked — without ruling. Use for any «is it permitted», «may I», «what is the halakhah», «what does the Shulchan Arukh say» or «where is the law of X» question — also when the person asks for a bare yes or no, or says no sources are needed: the answer is still sources, never a ruling."
 ---
 
 # Marei mekomot
