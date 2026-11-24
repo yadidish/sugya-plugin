@@ -45,15 +45,13 @@ place, a board, a room — stays in your account until you remove it, as if you 
 button on the site. `mark_learned` can take a mark back and `save` can take a saved place out;
 a board, a room or the account cannot be deleted through these tools.
 
-## Third parties the server calls on your behalf
+## No third party is called on your behalf
 
-Some tools fetch from other services while answering; those services see the request the
-server sends, which carries the query or reference, and the server's own address, never yours:
-
-- **Sefaria** (sefaria.org) — the connection graph (`get_links`) and the Jastrow dictionary (`lookup_word`).
-- **Hebcal** (hebcal.com) — the Hebrew date, holidays, learning cycles, candle lighting and
-  zmanim (`calendar`), including the date and city name you gave.
-- **sugya.org** — the dictionary and the shiur index.
+Every tool answers from sugya.org's own servers. The texts, the links between them
+(`get_links`), the dictionaries (`lookup_word`, Jastrow included) and the shiur index are
+stored there; the calendar (`calendar`) — the Hebrew date, holidays, learning cycles, candle
+lighting and zmanim — is computed there, so the date and the city name you give go no
+further than our server. No request is sent to any other service while a tool answers.
 
 `find_resources` returns links to other sites (dafyomi.co.il, daf-yomi.com, toldot.com,
 din.org.il, dinonline.org, hidabroot.org, ohr.edu); the server does not contact them, and
@@ -61,7 +59,7 @@ opening a link is subject to that site's own policy.
 
 ## Caching
 
-Answers from Sefaria, Hebcal and the static data are cached at the edge for up to a day,
+Answers are cached at the edge for up to a day,
 keyed by the request, with no user information.
 
 ## Rate limits

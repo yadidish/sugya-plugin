@@ -81,8 +81,8 @@ you can disconnect it in the client's connector settings. The library works with
 - Texts come back in Hebrew. Translations are the assistant's own and are marked as such.
 - The library is the classical one: no modern or academic commentary, no Kabbalah or
   Chasidut beyond the classical works, no open web. «I did not find a source» is a valid answer.
-- Calendar, holidays and zmanim come from [Hebcal](https://www.hebcal.com) (CC BY 4.0);
-  the Daf Yomi is computed by sugya.org. Confirm halakhic times with your community.
+- Calendar, holidays and zmanim are computed by sugya.org with the open-source Hebcal
+  libraries; the Daf Yomi is sugya.org's own calendar. Confirm halakhic times with your community.
 
 ## Evaluation
 

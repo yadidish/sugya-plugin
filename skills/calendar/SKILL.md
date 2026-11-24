@@ -20,8 +20,9 @@ do not compute a Hebrew date, a daf or a sunset yourself.
    `fetch` and learn; offer to open one.
 4. **Holidays:** the tool follows the Israeli or the diaspora scheme by the city it was given.
    Say which applies when it matters (second day of Yom Tov).
-5. **Attribution:** the calendar, holidays, parasha and zmanim come from Hebcal; say so once
-   when zmanim are given. The Daf Yomi is computed by sugya.org.
+5. **Attribution:** the calendar, holidays, parasha and zmanim are computed by sugya.org
+   (with the open-source Hebcal libraries); say «computed by sugya.org» once when zmanim are
+   given, and that halakhic times should be confirmed locally.
 6. **A date that fails** (a wrong format, a city the tool cannot place) is reported with
    what to send instead.
 
