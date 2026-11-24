@@ -42,11 +42,8 @@ claude plugin marketplace add yadidish/sugya-plugin
 claude plugin install sugya@sugya
 ```
 
-or the bare server, without skills:
-
-```bash
-claude mcp add --transport http sugya https://mcp.sugya.org/mcp
-```
+or the bare server, without skills: add one of the addresses above as an HTTP MCP server
+named `sugya` (`claude mcp add`, transport `http`).
 
 **Any other MCP client** — Streamable HTTP; OAuth 2.1 with dynamic registration or a
 client-id metadata document for `/me` and `/mcp`.
