@@ -16,8 +16,9 @@ the technical headers of the request — the calling platform's user agent and n
 
 ## What the server keeps
 
-To improve the search and the methods, the server logs every tool call **without a retention
-limit**: the tool name, its arguments (including the text of a query), the references or
+To improve the search and the methods, the server logs every tool call and keeps the log for
+**thirty days**, after which it is deleted and only daily counts remain (how many calls, of
+which tool, from which client — no query text): the tool name, its arguments (including the text of a query), the references or
 links it returned, the time it took, and the client family (Claude, OpenAI, browser, other).
 
 The network address is **not** stored. In its place the log keeps a one-way hash of the
@@ -39,7 +40,10 @@ ninety days without use ends it. We keep the client's registration (name, callba
 which account allowed it, when, with which permissions, and one-way hashes of the keys.
 Disconnecting the client in its connector settings revokes the key. Calls made with your
 account are logged like other calls, with your account id in place of the address hash; the
-text of a note you put on a board is not logged. Nothing is deleted through these tools.
+text of a note you put on a board is not logged. What these tools write — a mark, a saved
+place, a board, a room — stays in your account until you remove it, as if you had pressed the
+button on the site. `mark_learned` can take a mark back and `save` can take a saved place out;
+a board, a room or the account cannot be deleted through these tools.
 
 ## Third parties the server calls on your behalf
 

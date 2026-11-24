@@ -95,7 +95,8 @@ cases that must not fire or must decline — with recorded answers of the real s
 ## Privacy
 
 The library needs no account. Tool calls are logged (query text, returned references, a hashed
-client handle; with sign-in, your account id) to improve the search; see [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms) (summary in [PRIVACY.md](PRIVACY.md)).
+client handle; with sign-in, your account id) to improve the search, and the log is deleted after
+thirty days; see [sugya.org/privacy](https://sugya.org/privacy) and [sugya.org/terms](https://sugya.org/terms) (summary in [PRIVACY.md](PRIVACY.md)).
 
 ## Source
 
