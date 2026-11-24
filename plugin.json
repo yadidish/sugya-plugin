@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sugya",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Learn Torah, Talmud and halakhah with an AI that answers only from the classical library on sugya.org, with an exact reference and a link on every claim: daf yomi, chavruta, finding a source, marei mekomot, the Jewish calendar.",
   "author": {
     "name": "sugya.org",
