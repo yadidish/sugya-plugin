@@ -35,15 +35,9 @@ Create custom app*: paste the address, Next, tick the acknowledgment, Connect. W
 and secret empty), then shows the twelve actions and «Connect» once more to save. In a chat,
 name the app or pick it with «@». Custom apps in Gemini are English-only for now.
 
-**Claude Code** — the plugin, with its skills:
-
-```bash
-claude plugin marketplace add yadidish/sugya-plugin
-claude plugin install sugya@sugya
-```
-
-or the bare server, without skills: add one of the addresses above as an HTTP MCP server
-named `sugya` (`claude mcp add`, transport `http`).
+**Claude Code** — the plugin, with its skills: open `/plugin`, add the marketplace
+`yadidish/sugya-plugin` and install `sugya` from it. Or the bare server, without skills: add one
+of the addresses above as an HTTP MCP server named `sugya`.
 
 **Any other MCP client** — Streamable HTTP; OAuth 2.1 with dynamic registration or a
 client-id metadata document for `/me` and `/mcp`.
